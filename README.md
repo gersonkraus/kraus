@@ -1,0 +1,2 @@
+# kraus
+Repositório ubuntu server
