@@ -1,20 +1,25 @@
- version: '3.7'
+version: '3'
+
 services:
-  web:
-    image: nginx:mainline
-    ports:
-      - "8000:80"
-    volumes:
-      - ../kraus:/usr/share/nginx/html
   db:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_DATABASE: contract
-      MYSQL_USER: kraus
-      MYSQL_PASSWORD: hprf35
-      MYSQL_ROOT_PASSWORD: hprf35
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: database_name
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_password
+      MYSQL_ROOT_PASSWORD: root_password
     volumes:
-      - ./data:/var/lib/mysql
+      - ./db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  web:
+    image: php:apache
+    restart: always
+    volumes:
+      - ./kraus/app:/var/www/html
+    ports:
+      - 8080:80
+    links:
+      - db:mysql
