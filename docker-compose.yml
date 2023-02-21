@@ -28,7 +28,7 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     ports:
-      - 8001:80
+      - 8080:80
     environment:
-      PMA_HOST: db
+      PMA_HOST: db-01
       MYSQL_ROOT_PASSWORD: hprf35
