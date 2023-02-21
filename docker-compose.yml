@@ -32,6 +32,5 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: hprf35
-  
-  my-service:
-    network_mode: host
+
+  network_mode: host
