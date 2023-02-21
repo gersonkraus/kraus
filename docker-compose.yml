@@ -18,8 +18,8 @@ services:
     image: php:apache
     restart: always
     volumes:
-      - ./kraus/app:/var/www/html
+      - ./app:/var/www/html
     ports:
-      - 8080:80
+      - 8000:80
     links:
       - db:mysql
