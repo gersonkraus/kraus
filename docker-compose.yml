@@ -13,6 +13,7 @@ services:
       - ./db_data:/var/lib/mysql
     ports:
       - 3306:3306
+    network_mode: host
 
   web:
     image: php:apache
@@ -32,5 +33,5 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: hprf35
-
-  network_mode: host
+    network_mode: host
+  
